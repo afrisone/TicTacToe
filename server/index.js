@@ -1,6 +1,18 @@
 const WebSocket = require('ws')
 
-const server = new WebSocket.Server({ port: 8080 })
+const server = new WebSocket.Server({
+    port: 8080,
+    // verifyClient: (data, callback) => { 
+    
+    //     const token = data.req.headers.token
+    //     if (!token) {
+    //         callback(false, 401, "Unauthorized")
+    //     } else {
+    //         // TODO: fill in with a verified token
+    //         callback(true)
+    //     }
+    // }
+})
 
 server.on('connection', (socket) => {
     socket.on('message', (message) => {
