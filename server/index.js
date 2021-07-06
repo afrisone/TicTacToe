@@ -1,9 +1,10 @@
 const WebSocket = require('ws')
 
+const { getLeaderboard, getUsers } = require('./api')
+
 const server = new WebSocket.Server({
     port: 8080,
     // verifyClient: (data, callback) => { 
-    
     //     const token = data.req.headers.token
     //     if (!token) {
     //         callback(false, 401, "Unauthorized")
@@ -16,10 +17,28 @@ const server = new WebSocket.Server({
 
 server.on('connection', (socket) => {
     socket.on('message', (message) => {
-        console.log(`Message from client: ${message}`)
-        server.clients.forEach((client) => {
-            client.send("This is a backchannel!")
-        })
+        handleMessage(message, socket)
     })
-    socket.send("Hello from your server!")
 })
+
+
+function handleMessage(message, socket) {
+    let msgJson = JSON.parse(message)
+    let result
+
+    switch(msgJson.type) {
+        case "getLeaderboard": {
+            result = getLeaderboard()
+            break
+        }
+        case "getUsers": {
+            result = getUsers()
+            break
+        }
+        default: {
+
+        }
+    }
+
+    result && socket.send(JSON.stringify(result))
+}
