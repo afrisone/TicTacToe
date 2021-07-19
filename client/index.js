@@ -12,6 +12,10 @@ function getUsers() {
     return sendToServer("getUsers")
 }
 
+function getGameBoard() {
+    return sendToServer("getGameBoard")
+}
+
 socket.addEventListener('message', (event) => {
     console.log(`Message from server: ${event.data}`)
 })
