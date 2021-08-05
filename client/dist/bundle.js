@@ -1,0 +1,1 @@
+(()=>{"use strict";var e=new WebSocket("ws://localhost:8080");e.addEventListener("open",(function(){console.log("Connected to web socket")})),e.addEventListener("message",(function(e){console.log("Message from server: "+e.data)}))})();

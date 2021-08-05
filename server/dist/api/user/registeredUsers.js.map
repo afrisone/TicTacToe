@@ -1,0 +1,1 @@
+{"version":3,"file":"registeredUsers.js","sourceRoot":"","sources":["../../../api/user/registeredUsers.ts"],"names":[],"mappings":";;;AAAA,SAAgB,QAAQ;IACpB,OAAO;QACH,KAAK,EAAE,CAAC,OAAO,EAAE,OAAO,EAAE,OAAO,EAAE,OAAO,CAAC;QAC3C,MAAM,EAAE,KAAK;KAChB,CAAA;AACL,CAAC;AALD,4BAKC"}
